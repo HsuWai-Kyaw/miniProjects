@@ -1,0 +1,56 @@
+<style>
+  tr {
+    line-height: 25px;
+    margin: auto;
+  }
+</style>
+
+<button id="generateBtnC">Random C digit</button>
+<div id="tableContainerC"></div>
+
+<hr />
+
+<button id="generateBtn">Random 8 digit</button>
+<div id="tableContainer"></div>
+
+<script>
+  function generateRandomNumbersTable() {
+    var table = '<table><tbody>'
+    for (var i = 0; i < 10; i++) {
+      table +=
+        '<tr><td>' +
+        '354-' +
+        Math.floor(10000000 + Math.random() * 90000000) +
+        '</td></tr>'
+    }
+    table += '</tbody></table>'
+    return table
+  }
+
+  document.getElementById('generateBtn').addEventListener('click', function () {
+    document.getElementById(
+      'tableContainer',
+    ).innerHTML = generateRandomNumbersTable()
+  })
+
+  function generateRandomNumbersTableC() {
+    var table = '<table><tbody>'
+    for (var i = 0; i < 10; i++) {
+      var randomNumber = Math.floor(
+        10000000 + Math.random() * 90000000,
+      ).toString()
+      randomNumber = randomNumber.slice(0, 2) + 'C' + randomNumber.slice(3)
+      table += '<tr><td>' + '354-' + randomNumber + '</td></tr>'
+    }
+    table += '</tbody></table>'
+    return table
+  }
+
+  document
+    .getElementById('generateBtnC')
+    .addEventListener('click', function () {
+      document.getElementById(
+        'tableContainerC',
+      ).innerHTML = generateRandomNumbersTableC()
+    })
+</script>

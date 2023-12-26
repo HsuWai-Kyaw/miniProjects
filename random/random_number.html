@@ -1,0 +1,25 @@
+<button id="generateBtnC">Generate</button>
+<div id="tableContainerC"></div>
+
+<script>
+  function generateRandomNumbersTableC() {
+    var table = '<table><tbody>'
+    for (var i = 0; i < 10; i++) {
+      var randomNumber = Math.floor(
+        10000000 + Math.random() * 90000000,
+      ).toString()
+      randomNumber = randomNumber.slice(0, 2) + 'C' + randomNumber.slice(3)
+      table += '<tr><td>' + '354-' + randomNumber + '</td></tr>'
+    }
+    table += '</tbody></table>'
+    return table
+  }
+
+  document
+    .getElementById('generateBtnC')
+    .addEventListener('click', function () {
+      document.getElementById(
+        'tableContainerC',
+      ).innerHTML = generateRandomNumbersTableC()
+    })
+</script>

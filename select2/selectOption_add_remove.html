@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add and Remove by js</title>
+</head>
+
+<body>
+    <h4>Add and Remove Township</h4>
+    <form action="#">
+        <select name="" id="mySelect">
+            <option value="" selected disabled>Choose Township</option>
+            <option value="Town1">Town1</option>
+            <option value="Town2">Town2</option>
+            <option value="Town3">Town3</option>
+        </select>
+        <input type="text" name="" id="text">
+        <button type="button" id="addBtn">Add</button>
+        <button type="button" id="removeBtn">Remove</button>
+    </form>
+
+    <script>
+
+        document.getElementById('addBtn').onclick = function () {
+            let mySelect = document.getElementById('mySelect');
+            let option = document.createElement('option');
+            let textInput = document.getElementById('text');
+
+            option.value = textInput.value;
+            option.text = textInput.value;
+            mySelect.add(option);
+            textInput.value = "";
+        };
+
+        document.getElementById('removeBtn').onclick = function () {
+            let mySelect = document.getElementById('mySelect');
+
+            mySelect.remove(mySelect.selectedIndex);
+        };
+    </script>
+
+</body>
+
+</html>
